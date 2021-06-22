@@ -6,7 +6,7 @@ Source code for WWW2021 paper ["**Graph Structure Estimation Neural Networks**"]
 
 ## Environment Settings
 
-* ython == 3.6.9
+* python == 3.6.9
 * torch == 1.6.0
 
 
