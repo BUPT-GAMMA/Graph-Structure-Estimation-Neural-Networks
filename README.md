@@ -24,7 +24,7 @@ Source code for WWW2021 paper ["**Graph Structure Estimation Neural Networks**"]
 - hidden: embedding dimension
 - dropout: dropout rate
 - activation: activation function selection
-- dataset
+- dataset: str in ['cora', 'citeseer', 'pubmed', 'chameleon', 'squirrel', 'actor', 'sbm']
 - epoch: number of epochs to train the base model
 
 
@@ -86,7 +86,7 @@ python ./code/train.py
 
 
 
-## Hyper-parameter adjustment
+## Hyper-parameter Tuning
 
 There are three key hyper-parameters: *k*, *threshold* and *tolerance*.
 
