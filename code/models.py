@@ -233,8 +233,7 @@ class EstimateAdj():
             self.E = np.zeros((self.num_node, self.num_node), dtype=np.int64)
 
     def update_obs(self, output):
-        a = output.repeat(self.num_node).reshape(self.num_node, -1)
-        self.E += (a==a.T)
+        self.E += output
         self.N += 1
 
     def revise_pred(self):
