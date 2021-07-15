@@ -217,20 +217,10 @@ class EstimateAdj():
         self.iterations = 0
 
         self.homophily = data.homophily
-        if self.homophily > 0.5:
-            self.N = 1
-            self.E = data.adj.to_dense().cpu().numpy()
-        else:
-            self.N = 0
-            self.E = np.zeros((self.num_node, self.num_node), dtype=np.int64)
 
     def reset_obs(self):
-        if self.homophily > 0.5:
-            self.N = 1
-            self.E = self.adj
-        else:
-            self.N = 0
-            self.E = np.zeros((self.num_node, self.num_node), dtype=np.int64)
+        self.N = 0
+        self.E = np.zeros((self.num_node, self.num_node), dtype=np.int64)
 
     def update_obs(self, output):
         self.E += output
@@ -325,7 +315,7 @@ class EstimateAdj():
         self.revise_pred()
 
         # Do an initial E-step with random alpha, beta and O
-        # Beta must be smalller than alpha
+        # Beta must be smaller than alpha
         beta, alpha = np.sort(np.random.rand(2))
         O = np.triu(np.random.rand(self.num_class, self.num_class))
         
